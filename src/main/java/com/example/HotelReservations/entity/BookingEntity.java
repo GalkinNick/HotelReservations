@@ -1,12 +1,16 @@
 package com.example.HotelReservations.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
+@Builder
 @Entity
 @Table(name = "booking")
 public class BookingEntity {
@@ -24,5 +28,9 @@ public class BookingEntity {
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
     private RoomEntity room;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
 }

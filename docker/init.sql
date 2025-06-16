@@ -37,3 +37,13 @@ CREATE TABLE users (
     role VARCHAR(20) NOT NULL CHECK (role IN ('USER', 'ADMIN'))
 );
 
+CREATE TABLE booking (
+    id UUID PRIMARY KEY,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    room_id UUID NOT NULL,
+    user_id UUID NOT NULL,
+    FOREIGN KEY (room_id) REFERENCES rooms(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
