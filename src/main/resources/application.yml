@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  main:
+    allow-circular-references: true
+  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    generate-ddl: true
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hotels_db
+    username: postgres
+    password: passPost
+    hikari:
+      schema: hotels_schema
+      connection-ini-sql: CREATE SCHEMA IF NOT EXISTS hotels_schema
+      connection-timeout: 10000
