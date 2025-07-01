@@ -13,9 +13,9 @@ import java.util.UUID;
 @Repository
 public interface BookingRepository extends JpaRepository<BookingEntity, UUID> {
 
-    @Query("SELECT COUNT(b) FROM Booking b WHERE b.room.id = :roomId " +
-            "AND ((b.startDate <= :endDate AND b.endDate >= :startDate))")
-    long countOverlappingBookings(@Param("roomId") UUID roomId, @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+  //  @Query("SELECT COUNT(b) FROM booking b WHERE b.room.id = :roomId " +
+  //          "AND ((b.startDate <= :endDate AND b.endDate >= :startDate))")
+  //  long countOverlappingBookings(@Param("roomId") UUID roomId, @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
     List<BookingEntity> findByUserId(UUID userId);
 }

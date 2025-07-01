@@ -7,7 +7,7 @@ CREATE TABLE hotels (
     city VARCHAR(100) NOT NULL,
     address VARCHAR(255),
     distance_from_center DOUBLE PRECISION,
-    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    rating FLOAT CHECK (rating >= 1 AND rating <= 5),
     rating_count INTEGER DEFAULT 0
 );
 

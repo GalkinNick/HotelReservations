@@ -45,9 +45,9 @@ public class BookingServiceImpl implements BookingService {
             throw new IllegalArgumentException("Start date must be before end date.");
         }
 
-        if (bookingRepository.countOverlappingBookings(roomId, startDate, endDate) > 0) {
+        /*if (bookingRepository.countOverlappingBookings(roomId, startDate, endDate) > 0) {
             throw new IllegalArgumentException("Room is not available for the selected dates.");
-        }
+        }*/
 
 
         BookingEntity booking = BookingEntity.builder()

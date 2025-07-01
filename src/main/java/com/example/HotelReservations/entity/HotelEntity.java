@@ -30,7 +30,7 @@ public class HotelEntity {
     private float distanceFromCenter;
 
     @Column(name = "rating")
-    private int rating;
+    private float rating;
 
     @Column(name = "rating_count")
     private int ratingCount;

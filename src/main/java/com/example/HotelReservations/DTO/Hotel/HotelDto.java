@@ -23,7 +23,7 @@ public class HotelDto {
 
     private float distanceFromCenter;
 
-    private int rating;
+    private float rating;
 
     private int ratingCount;
 }

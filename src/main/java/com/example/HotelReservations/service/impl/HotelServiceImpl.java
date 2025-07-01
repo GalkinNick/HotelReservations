@@ -6,6 +6,9 @@ import com.example.HotelReservations.service.HotelService;
 import com.example.HotelReservations.utils.BeanUtils;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
@@ -21,6 +24,11 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public List<HotelEntity> findAll() {
         return hotelRepository.findAll();
+    }
+
+    @Override
+    public Page<HotelEntity> findAll(Specification spec, Pageable pageable) {
+        return hotelRepository.findAll(spec, pageable);
     }
 
     @Override

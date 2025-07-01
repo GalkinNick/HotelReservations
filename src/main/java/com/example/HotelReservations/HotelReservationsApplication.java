@@ -11,6 +11,3 @@ public class HotelReservationsApplication {
 	}
 
 }
-
-
-///Задание 6
