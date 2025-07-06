@@ -12,6 +12,8 @@ import com.example.HotelReservations.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -32,6 +34,11 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public List<BookingEntity> findAll() {
         return bookingRepository.findAll();
+    }
+
+    @Override
+    public Page<BookingEntity> findAll(Pageable pageable) {
+        return bookingRepository.findAll(pageable);
     }
 
 

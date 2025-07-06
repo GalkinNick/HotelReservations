@@ -1,6 +1,8 @@
 package com.example.HotelReservations.repository;
 
 import com.example.HotelReservations.entity.BookingEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +20,6 @@ public interface BookingRepository extends JpaRepository<BookingEntity, UUID> {
   //  long countOverlappingBookings(@Param("roomId") UUID roomId, @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
     List<BookingEntity> findByUserId(UUID userId);
+
+    Page<BookingEntity> findAll(Pageable pageable);
 }

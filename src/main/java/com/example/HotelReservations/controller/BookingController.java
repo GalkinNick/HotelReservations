@@ -2,16 +2,22 @@ package com.example.HotelReservations.controller;
 
 import com.example.HotelReservations.DTO.Booking.BookingCreatedDto;
 import com.example.HotelReservations.DTO.Booking.BookingResponseDto;
+import com.example.HotelReservations.DTO.PagedResponseDto;
 import com.example.HotelReservations.entity.BookingEntity;
 import com.example.HotelReservations.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+
+
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/api/booking")
@@ -48,6 +54,23 @@ public class BookingController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .build();
         }
+    }
+
+
+    @GetMapping("/bookings")
+    public ResponseEntity<PagedResponseDto<BookingEntity>> getBookings(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<BookingEntity> bookingPage = bookingServiceImpl.findAll(pageable);
+
+        PagedResponseDto<BookingEntity> response = new PagedResponseDto<>(
+                bookingPage.getContent(),
+                bookingPage.getTotalElements()
+        );
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping

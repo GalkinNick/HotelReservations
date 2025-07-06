@@ -6,6 +6,9 @@ import com.example.HotelReservations.repository.RoomRepository;
 import com.example.HotelReservations.service.RoomService;
 import com.example.HotelReservations.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +23,11 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public List<RoomEntity> findAll() {
         return roomRepository.findAll();
+    }
+
+    @Override
+    public Page<RoomEntity> findAll(Specification specification, Pageable pageable) {
+        return roomRepository.findAll(specification, pageable);
     }
 
     @Override
