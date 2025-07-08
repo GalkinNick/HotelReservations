@@ -13,13 +13,13 @@ public class KafkaEventListener {
 
     private final StatisticService statisticServiceImpl;
 
-    @KafkaListener(topics = "${kafka.topic.user-registration}", groupId = "statistics-service-group")
+    @KafkaListener(topics = "${app.kafka.userRegistrationTopic}", groupId = "statistics-service-group")
     public void listenUserRegistration(UserRegistrationEvent event) {
         log.info("Received UserRegistrationEvent: {}", event);
         statisticServiceImpl.saveEvent("UserRegistration", event);
     }
 
-    @KafkaListener(topics = "${kafka.topic.room-booking}", groupId = "statistics-service-group")
+    @KafkaListener(topics = "${app.kafka.roomBookingTopic}", groupId = "statistics-service-group")
     public void listenRoomBooking(RoomBookingEvent event) {
         log.info("Received RoomBookingEvent: {}", event);
         statisticServiceImpl.saveEvent("RoomBooking", event);

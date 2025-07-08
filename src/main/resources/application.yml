@@ -22,3 +22,6 @@ spring:
 
 app:
   kafka:
+    bootstrapServers: "bootstrap-servers"
+    userRegistrationTopic: "user-registration-topic"
+    roomBookingTopic: "room-booking-topic"

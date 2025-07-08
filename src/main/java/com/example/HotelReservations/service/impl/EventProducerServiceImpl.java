@@ -16,10 +16,10 @@ public class EventProducerServiceImpl implements EventProducerService {
 
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    @Value("")
+    @Value("app.kafka.userRegistrationTopic")
     private String userRegistrationTopic;
 
-    @Value("")
+    @Value("app.kafka.roomBookingTopic")
     private String roomBookingTopic;
 
     @Override
