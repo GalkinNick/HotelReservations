@@ -18,4 +18,6 @@ public interface UserService {
     UserEntity update(UUID id, UserEntity userEntity);
 
     void deleteById(UUID id);
+
+    void registerUser(String userId);
 }

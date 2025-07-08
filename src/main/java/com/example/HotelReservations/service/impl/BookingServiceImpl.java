@@ -3,10 +3,12 @@ package com.example.HotelReservations.service.impl;
 import com.example.HotelReservations.entity.BookingEntity;
 import com.example.HotelReservations.entity.RoomEntity;
 import com.example.HotelReservations.entity.UserEntity;
+import com.example.HotelReservations.event.RoomBookingEvent;
 import com.example.HotelReservations.repository.BookingRepository;
 import com.example.HotelReservations.repository.RoomRepository;
 import com.example.HotelReservations.repository.UserRepository;
 import com.example.HotelReservations.service.BookingService;
+import com.example.HotelReservations.service.EventProducerService;
 import com.example.HotelReservations.service.RoomService;
 import com.example.HotelReservations.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
@@ -29,6 +31,8 @@ public class BookingServiceImpl implements BookingService {
     private final UserRepository userRepository;
 
     private final RoomRepository roomRepository;
+
+    private final EventProducerService eventProducerServiceImpl;
 
 
     @Override
@@ -65,6 +69,9 @@ public class BookingServiceImpl implements BookingService {
                 .build();
 
 
+        RoomBookingEvent event = new RoomBookingEvent(roomId, userId, startDate, endDate);
+        eventProducerServiceImpl.sendRoomBookingEvent(event);
+
         return bookingRepository.save(booking);
     }
 
@@ -72,4 +79,6 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingEntity> findByUserId(UUID userId) {
         return bookingRepository.findByUserId(userId);
     }
+
+
 }

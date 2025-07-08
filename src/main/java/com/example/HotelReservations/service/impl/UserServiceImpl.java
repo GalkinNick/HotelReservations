@@ -1,7 +1,9 @@
 package com.example.HotelReservations.service.impl;
 
 import com.example.HotelReservations.entity.UserEntity;
+import com.example.HotelReservations.event.UserRegistrationEvent;
 import com.example.HotelReservations.repository.UserRepository;
+import com.example.HotelReservations.service.EventProducerService;
 import com.example.HotelReservations.service.UserService;
 import com.example.HotelReservations.utils.BeanUtils;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,8 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+
+    private final EventProducerService eventProducerService;
 
 
     @Override
@@ -65,6 +69,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(UUID id) {
         userRepository.deleteById(id);
+    }
+
+
+    @Override
+    public void registerUser(String userId) {
+        UserRegistrationEvent event = new UserRegistrationEvent(userId);
+        eventProducerService.sendUserRegistrationEvent(event);
     }
 
 }
