@@ -11,6 +11,7 @@
 - [Spring](https://spring.io/projects/spring-ws)
 - [JPA Specification](https://docs.spring.io/spring-data/jpa/reference/jpa/specifications.html)
 - [Docker](https://www.docker.com)
+- [PostgreSQL](https://www.postgresql.org)
 - [MongoDB](https://www.mongodb.com)
 - [Kafka](https://kafka.apache.org)
 
@@ -24,6 +25,9 @@ $ cd docker
 ```sh
 $ docker compose up
 ```
+### Требования
+В файле application.yaml в корне проекта пропишите данные доступа к PostgreSQL-серверу.
+
 ## Использование
 Проверка работоспосбности сервиса выполянется на плафторме [Postman](https://www.postman.com). 
 
