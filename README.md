@@ -25,4 +25,4 @@ $ cd docker
 $ docker compose up
 ```
 
-Проверка работоспосбности сервиса выполянется на плафторме Postman(https://www.postman.com)
+Проверка работоспосбности сервиса выполянется на плафторме [Postman](https://www.postman.com)
