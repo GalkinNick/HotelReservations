@@ -24,3 +24,5 @@ $ cd docker
 ```sh
 $ docker compose up
 ```
+
+Проверка работоспосбности сервиса выполянется на плафторме Postman(https://www.postman.com)
