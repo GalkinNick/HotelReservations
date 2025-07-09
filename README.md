@@ -9,6 +9,18 @@
 ## Технологии
 - [Intellij IDEA](https://www.jetbrains.com/idea/download/?section=windows)
 - [Spring](https://spring.io/projects/spring-ws)
+- [JPA Specification](https://docs.spring.io/spring-data/jpa/reference/jpa/specifications.html)
 - [Docker](https://www.docker.com)
 - [MongoDB](https://www.mongodb.com)
 - [Kafka](https://kafka.apache.org)
+
+## Использование
+Выкачать проект из Git репозитория на свой ПК. Открыть проект в среде Intellij IDEA. 
+В командной строке выполнить команду для перехода в директорию "docker":
+```sh
+$ cd docker
+```
+Находясь в директории выполнить команду для сборки, создания, запуска и подключения к контейнерам набор сервисов в многоконтейнерном Docker-приложении: 
+```sh
+$ docker compose up
+```
